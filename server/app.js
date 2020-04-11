@@ -2,10 +2,15 @@ const express = require('express');
 
 const graphqlHTTP = require('express-graphql');
 
+const cors = require('cors');
+
 const schema = require('./schema/schema');
 const mongoose = require('mongoose');
 
 const app = express();
+
+//allow cros-origin requests
+app.use(cors());
 
 mongoose.connect('mongodb+srv://karim:lasauce2425@clusterkarim-cqrrv.mongodb.net/test?retryWrites=true&w=majority', { useNewUrlParser: true, useUnifiedTopology: true });
 
